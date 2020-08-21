@@ -15,7 +15,7 @@ scraper.on("finished", (err, data) => {
 });
  
 scraper.on("error", (error) => {
-  console.log(error);
+  console.log(chalk.red(error));
 });
  
 scraper.on("progress", (progress) => {

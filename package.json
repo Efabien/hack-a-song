@@ -12,5 +12,8 @@
     "chalk": "^4.1.0",
     "yargs": "^13.2.4",
     "youtube-mp3-downloader": "^0.7.3"
+  },
+  "bin": {
+    "uds": "./app.js"
   }
 }
