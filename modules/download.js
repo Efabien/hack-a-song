@@ -30,7 +30,7 @@ class Scrapper {
 
   download(videoId) {
     this._processing = videoId;
-    this.barPorgress.start(0, 100);
+    this.barPorgress.start(100, 0);
     this.Ytd.download(videoId);
   }
 }
@@ -66,5 +66,7 @@ const moveFile = (data) => {
     }
   );
 };
+
+const scraper = new Scrapper(config);
 
 module.exports = { scraper };
