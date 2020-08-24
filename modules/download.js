@@ -2,27 +2,38 @@ const YoutubeMp3Downloader = require("youtube-mp3-downloader");
 const fs = require('fs');
 const os = require('os');
 const chalk = require('chalk');
+const cliProgress = require('cli-progress');
 const config = require('../config');
 
-const scraper = new YoutubeMp3Downloader(config);
- 
-scraper.on("finished", (err, data) => {
-  moveFile(data);
-});
- 
-scraper.on("error", (error) => {
-  console.log(chalk.red(error));
-});
- 
-scraper.on("progress", (progress) => {
-  console.log(
-    chalk.blue(
-      JSON.stringify(
-        `${progress.videoId} : ${Math.floor(progress.progress.percentage)}%`
-        )
-      )
-    );
-});
+class Scrapper {
+  constructor(config) {
+    this.Ytd = new YoutubeMp3Downloader(config);
+    this.barPorgress = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+    this._processing;
+    this._init();
+  }
+
+  _init() {
+    this.Ytd.on("finished", (err, data) => {
+      this.barPorgress.stop();
+      moveFile(data);
+    });
+     
+    this.Ytd.on("error", (error) => {
+      console.log(chalk.red(error));
+    });
+     
+    this.Ytd.on("progress", (progress) => {
+      this.barPorgress.update(progress.progress.percentage)
+    });
+  }
+
+  download(videoId) {
+    this._processing = videoId;
+    this.barPorgress.start(0, 100);
+    this.Ytd.download(videoId);
+  }
+}
 
 const logDone = (fileName) => {
   console.log(

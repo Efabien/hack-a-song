@@ -10,10 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.0",
+    "cli-progress": "^3.8.2",
     "yargs": "^13.2.4",
     "youtube-mp3-downloader": "^0.7.3"
   },
   "bin": {
-    "uds": "./app.js"
+    "yds": "./app.js"
   }
 }

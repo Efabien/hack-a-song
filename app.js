@@ -21,6 +21,4 @@ const run = (url) => {
   scraper.download(videoId);
 }
 
-const { exec } = require("child_process");
-
 run(options.url);
