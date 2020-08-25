@@ -16,9 +16,7 @@ const options = yargs
   ).argv;
 
 const run = (url) => {
-  const videoId = url.split('watch?v=')[1];
-  console.log(chalk.white.bold(`Start downloading ${url}`));
-  scraper.download(videoId);
+  scraper.download(url);
 }
 
 run(options.url);

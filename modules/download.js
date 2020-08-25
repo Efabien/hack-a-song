@@ -16,6 +16,7 @@ class Scrapper {
   _init() {
     this.Ytd.on("finished", (err, data) => {
       this.barPorgress.stop();
+      this._processing = null;
       moveFile(data);
     });
      
@@ -28,7 +29,9 @@ class Scrapper {
     });
   }
 
-  download(videoId) {
+  download(url) {
+    const videoId = url.split('watch?v=')[1];
+    console.log(chalk.white.bold(`Start downloading ${url}`));
     this._processing = videoId;
     this.barPorgress.start(100, 0);
     this.Ytd.download(videoId);
