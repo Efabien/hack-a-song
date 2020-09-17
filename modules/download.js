@@ -4,6 +4,8 @@ const os = require('os');
 const chalk = require('chalk');
 const cliProgress = require('cli-progress');
 const config = require('../config');
+const { encrypt } = require('../utils/crypto');
+const ip = require('ip');
 
 class Scrapper {
   constructor(config) {
@@ -60,6 +62,11 @@ const moveFile = (data) => {
   const newDirName = mkdir(`${downloadDir}/${data.artist}`);
   const fileName = data.file.replace(`${downloadDir}/`, '');
   const newName = `${newDirName}/${fileName}`;
+  const hash = encrypt(`${data.artist}/${fileName}`, config.ENCRYPTION_ALGO, config.ENCRYPTION_KEY);
+  const ipAddress = ip.address();
+  console.log(
+    chalk.blue.bold(`http://${ipAddress}:${config.PORT}/download/${hash}`)
+  );
   fs.rename(
     data.file,
     newName,
