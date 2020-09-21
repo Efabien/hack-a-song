@@ -15,10 +15,10 @@ app.use(cors());
 app.get('/download/:hash', (req, res) => {
   const hash = req.params.hash || '';
   const path = decrypt(hash, ENCRYPTION_ALGO, ENCRYPTION_KEY);
-  if (!fs.existsSync(`${__dirname}/downloads/${path}`)) {
+  const file = `${__dirname}/downloads/${path}`;
+  if (!fs.existsSync(file)) {
     return res.status(404).json({ message: 'Requested file does not exist' });
   }
-  const file = `${__dirname}/downloads/${path}`;
   res.download(file); // Set disposition and send it.
 });
 
