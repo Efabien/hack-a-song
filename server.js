@@ -19,9 +19,9 @@ app.get('/download/:hash', (req, res) => {
   if (!fs.existsSync(file)) {
     return res.status(404).json({ message: 'Requested file does not exist' });
   }
-  res.download(file); // Set disposition and send it.
+  res.download(file);
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening at http://${ip.address()}:${PORT}`);
+  console.log(`Sharing server listening at http://${ip.address()}:${PORT}`);
 });
