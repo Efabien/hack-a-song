@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const fs = require('fs');
+const ip = require('ip');
 
 const { decrypt } = require('./utils/crypto');
 
@@ -22,5 +23,5 @@ app.get('/download/:hash', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`);
+  console.log(`Example app listening at http://${ip.address()}:${PORT}`);
 });
