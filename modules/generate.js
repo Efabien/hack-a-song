@@ -30,7 +30,7 @@ const generate = (name) => {
     }
   }, (err, result) => {
     const choice = outPut[result.choice];
-    const toHash = choice.replace(`${os.homedir()}/Documents/hack/songs/downloads/`, '');
+    const toHash = choice.replace(`${config.outputPath}/`, '');
     console.log(colors.cyan(`Generating link for ${toHash} ...`));
 
     const hash = encrypt(toHash, config.ENCRYPTION_ALGO, config.ENCRYPTION_KEY);
@@ -49,7 +49,7 @@ const handleError = (message) => {
 };
 
 const exec = (name) => {
-  return execSync(`find ${os.homedir()}/Documents/hack/songs/downloads -iname *${name}*.mp3`)
+  return execSync(`find ${config.outputPath} -iname *${name}*.mp3`)
     .toString('utf-8').split('\n').slice(0, -1);
 }
 

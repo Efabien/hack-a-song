@@ -58,7 +58,7 @@ const mkdir = (dirname) => {
 }
 
 const moveFile = (data) => {
-  const downloadDir = `${os.homedir()}/Documents/hack/songs/downloads`;
+  const downloadDir = config.outputPath;
   const newDirName = mkdir(`${downloadDir}/${data.artist}`);
   const fileName = data.file.replace(`${downloadDir}/`, '');
   const newName = `${newDirName}/${fileName}`;
