@@ -7,6 +7,7 @@ Edit the file config/index so as to provide the following configuration values :
 - outputPath // Output file location (default: the home directory)
 - ENCRYPTION_KEY //for encrypting the dowloadable link
 - PORT // port of the sharing server
+
 Go to the project folder and install it globally :
 ```bash
 npm install songs -g
