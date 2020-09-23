@@ -5,7 +5,7 @@ const config = require('../config');
 const share = (hash) => {
   const ipAddress = ip.address();
   console.log(
-    chalk.blue.bold(`http://${ipAddress}:${config.PORT}/download/${hash}`)
+    chalk.blue.bold(`🔗 your link : http://${ipAddress}:${config.PORT}/download/${hash}`)
   );
 };
 

@@ -33,7 +33,7 @@ class Scrapper {
 
   download(url) {
     const videoId = url.split('watch?v=')[1];
-    console.log(chalk.white.bold(`Start downloading ${url}`));
+    console.log(chalk.white.bold(`🔃 Start downloading ${url}`));
     this._processing = videoId;
     this.barPorgress.start(100, 0);
     this.Ytd.download(videoId);
@@ -43,9 +43,7 @@ class Scrapper {
 const logDone = (fileName) => {
   console.log(
     chalk.green.bold(
-      JSON.stringify(
-        `Done : ${fileName}`
-      )
+        `✅ : ${fileName}`
     )
   );
 };
@@ -63,13 +61,13 @@ const moveFile = (data) => {
   const fileName = data.file.replace(`${downloadDir}/`, '');
   const newName = `${newDirName}/${fileName}`;
   const hash = encrypt(`${data.artist}/${fileName}`, config.ENCRYPTION_ALGO, config.ENCRYPTION_KEY);
-  share(hash);
   fs.rename(
     data.file,
     newName,
     (error) => {
       if (error) console.log(chalk.red(error));
       logDone(newName);
+      share(hash);
     }
   );
 };

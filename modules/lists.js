@@ -31,7 +31,7 @@ const logFiles = (files) => {
 };
 
 const logFolderName = (name) => {
-  console.log(chalk.bold.blue(` -- ${name} --`));
+  console.log(chalk.bold.blue(` 📂 ${name} --`));
 };
 
 const logFileName = (name, index) => {
