@@ -26,3 +26,7 @@ For generating a downloadable link of an already stored mp3 file, so as to share
 ``` bash
 yds -g <part-of-the-file-name>
 ```
+For getting the list of available songs
+``` bash
+yds -l
+```

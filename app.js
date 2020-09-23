@@ -3,6 +3,7 @@
 const yargs = require('yargs');
 const { scraper } = require('./modules/download');
 const { generate } = require('./modules/generate');
+const { lists } = require('./modules/lists');
 const options = yargs
  .usage('Usage: -u <youtube url>')
  .option(
@@ -19,7 +20,16 @@ const options = yargs
     {
       alias: 'generate',
       describe: 'Generate a download link for an existing song matching the name argument',
-      type: 'String',
+      type: 'string',
+      demandOption: false
+    }
+  )
+ .option(
+    'l',
+    {
+      alias: 'list',
+      describe: 'Gives the list of available files',
+      type: 'boolean',
       demandOption: false
     }
   ).argv;
@@ -27,6 +37,7 @@ const options = yargs
 const run = (options) => {
   if (options.url) return scraper.download(options.url);
   if (options.generate) return generate(options.generate);
+  if (options.list) return lists();
 }
 
 run(options);
