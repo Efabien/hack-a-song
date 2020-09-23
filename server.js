@@ -2,15 +2,12 @@
 
 const express = require('express');
 const app = express();
-const cors = require('cors');
 const fs = require('fs');
 const ip = require('ip');
 
 const { decrypt } = require('./utils/crypto');
 
 const { ENCRYPTION_ALGO, ENCRYPTION_KEY, PORT } = require('./config');
-
-app.use(cors());
 
 app.get('/download/:hash', (req, res) => {
   const hash = req.params.hash || '';

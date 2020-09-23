@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs');
-const chalk = require('chalk');
 const { scraper } = require('./modules/download');
 const { generate } = require('./modules/generate');
 const options = yargs

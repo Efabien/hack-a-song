@@ -11,7 +11,6 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "cli-progress": "^3.8.2",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "ip": "^1.1.5",
     "prompt": "^1.0.0",

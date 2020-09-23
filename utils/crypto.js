@@ -1,4 +1,3 @@
-// Nodejs encryption with CTR
 const crypto = require('crypto');
 
 const encrypt = (text, algorithm, password) => {
