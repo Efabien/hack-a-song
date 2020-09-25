@@ -32,11 +32,16 @@ class Scrapper {
   }
 
   download(url) {
-    const videoId = url.split('watch?v=')[1];
+    const videoId = this._extractId(url);
     console.log(chalk.white.bold(`🔃 Start downloading ${url}`));
     this._processing = videoId;
     this.barPorgress.start(100, 0);
     this.Ytd.download(videoId);
+  }
+
+  _extractId(url) {
+    const matchs = url.match(/v=(\w*)&?/);
+    return matchs[1];
   }
 }
 
