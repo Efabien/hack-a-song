@@ -9,11 +9,15 @@
   "author": "Efabien",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "chalk": "^4.1.0",
     "cli-progress": "^3.8.2",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "ip": "^1.1.5",
     "prompt": "^1.0.0",
+    "request-promise": "^4.2.6",
+    "telegram-bot-api": "^2.0.1",
     "yargs": "^13.2.4",
     "youtube-mp3-downloader": "^0.7.3"
   },

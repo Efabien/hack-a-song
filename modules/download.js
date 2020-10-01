@@ -72,7 +72,7 @@ const moveFile = (data) => {
     (error) => {
       if (error) console.log(chalk.red(error));
       logDone(newName);
-      share(hash);
+      share(hash, fileName);
     }
   );
 };

@@ -34,7 +34,7 @@ const generate = (name) => {
     console.log(colors.cyan(`Generating link for ${toHash} ...`));
 
     const hash = encrypt(toHash, config.ENCRYPTION_ALGO, config.ENCRYPTION_KEY);
-    share(hash);
+    share(hash, toHash);
   });
 };
 
