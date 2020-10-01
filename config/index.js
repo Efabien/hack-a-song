@@ -1,5 +1,6 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const os = require('os');
-require('dotenv').config();
 module.exports = Object.freeze({
   'ffmpegPath': 'ffmpeg',        // FFmpeg binary location
   'outputPath': `${os.homedir()}/Documents/hack/songs/downloads`, // Output file location (default: the home directory)

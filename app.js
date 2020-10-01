@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const yargs = require('yargs');
 const { scraper } = require('./modules/download');
 const { generate } = require('./modules/generate');
