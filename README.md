@@ -1,8 +1,6 @@
 # hack-a-song
 # Description
-This week-end project is a cli tool for converting youtube video to mp3, dowloading it and
-making it available for sharing to devices connected to the same network by generating a dowloadable link.
-The generated link is shared via telegram by using a telegram bot.
+This week-end project is a cli tool for converting YouTube video to MP3, downloading it and making it available for sharing to devices connected on the same network by generating a downloadable link. The generated link is shared via telegram by using a telegram bot.
 
 ## Telegram integration
 First you need to create a telegram bot.
