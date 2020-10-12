@@ -17,6 +17,9 @@ class Scrapper {
 
   _init() {
     this.Ytd.on("finished", (err, data) => {
+      if (err) {
+        return console.log(chalk.red('Download error :', err));
+      }
       this.barPorgress.stop();
       this._processing = null;
       moveFile(data);
@@ -70,7 +73,7 @@ const moveFile = (data) => {
     data.file,
     newName,
     (error) => {
-      if (error) console.log(chalk.red(error));
+      if (error) return console.log(chalk.red(error));
       logDone(newName);
       share(hash, fileName);
     }
