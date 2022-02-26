@@ -18,7 +18,7 @@ Edit the file config/index so as to provide the following configuration values :
 
 Go to the project folder and install it globally :
 ```bash
-npm install songs -g
+npm install -g
 ```
 Make sure to run the server :
 ```bash
