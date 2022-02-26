@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const ip = require('ip');
 const { telegramClient } = require('./utils/telegram-client');
-
+telegramClient.init();
 const { decrypt } = require('./utils/crypto');
 
 const { ENCRYPTION_ALGO, ENCRYPTION_KEY, PORT } = require('./config');
@@ -18,6 +18,7 @@ app.get('/download/:hash', (req, res) => {
   const hash = req.params.hash || '';
   const path = decrypt(hash, ENCRYPTION_ALGO, ENCRYPTION_KEY);
   const file = `${__dirname}/downloads/${path}`;
+  console.log(file)
   if (!fs.existsSync(file)) {
     return res.status(404).json({ message: 'Requested file does not exist' });
   }

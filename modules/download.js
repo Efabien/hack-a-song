@@ -39,7 +39,13 @@ class Scrapper {
     console.log(chalk.white.bold(`🔃 Start downloading ${url}`));
     this._processing = videoId;
     this.barPorgress.start(100, 0);
-    this.Ytd.download(videoId);
+    try {
+      this.Ytd.download(videoId);
+    } catch (error) {
+      console.log(error)
+      process.exit(1)
+    }
+    
   }
 
   _extractId(url) {

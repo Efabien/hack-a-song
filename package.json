@@ -19,7 +19,7 @@
     "request-promise": "^4.2.6",
     "telegram-bot-api": "^2.0.1",
     "yargs": "^13.2.4",
-    "youtube-mp3-downloader": "^0.7.3"
+    "youtube-mp3-downloader": "^0.7.10"
   },
   "bin": {
     "yds": "./app.js"
